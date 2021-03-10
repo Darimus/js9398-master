@@ -5,10 +5,10 @@ export default class ContatosService
     static async salvarContato(contatoInfo)
     {
         // EXERCÍCIO 2
-        const URLSearchParams =  {contato: JSON.stringify(contatoInfo)};
-        var urlPost = `${URL_BASE}?${URLSearchParams}`; 
+        const URLSearchParams =  { contato: JSON.stringify(contatoInfo) };
+        let urlPost = `${URL_BASE}?${URLSearchParams}`; 
         const resposta = await fetch(urlPost, { method: 'POST' });
-        const status = await JSON.parse(resposta);
+        const status = await resposta.json();
         return status;
     }
 

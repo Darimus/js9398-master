@@ -14,10 +14,11 @@ export async function adicionarContato(nome, telefone)
     else if (!telefone || telefone.length < 14) {
         throw new ContatoError('Telefone é inválido!');
     }
-
+    
     const infoContato = new Contato(nome, telefone);
     const status = await ContatosService.salvarContato(infoContato);
     console.log(status);
+    
     exibirContatos();
 }
 
